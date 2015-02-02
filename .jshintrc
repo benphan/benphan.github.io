@@ -1,0 +1,33 @@
+{
+	"bitwise": true,
+	"boss": true,
+	"browser": true,
+	"curly": true,
+	"eqeqeq": true,
+	"eqnull": true,
+	"immed": true,
+	"latedef": true,
+	"noempty": true,
+	"newcap": true,
+	"noarg": true,
+	"plusplus": false,
+	"smarttabs": true,
+	"sub": true,
+	"undef": true,
+	"globals": {
+		"require": true,
+		"define": true,
+		"describe": true,
+		"it": true,
+		"console": true,
+		"expect": true,
+		"jasmine": true,
+		"beforeEach":true,
+		"afterEach": true,
+		"runs": true,
+		"waitsFor": true,
+		"spyOn": true,
+		"confirm": true,
+		"module": true
+	}
+}

@@ -1,0 +1,3 @@
+mixin link(title, href)
+  - if (typeof(href) === 'undefined') href = '#'
+  a(href="#{href}", title="#{title}")&attributes(attributes)!=title
