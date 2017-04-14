@@ -34,12 +34,56 @@ function onLoadHandler(evt) {
   player.play();
 
   startAuto();
+
+  loadCustomParameters(window.frameElement.getAttribute('data-custom'));
 }
+
+
+function loadCustomParameters(url) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var xmlDoc = xhttp.responseXML;
+      var x = xmlDoc.getElementsByTagName("VpaidClickThrough");
+      var y = xmlDoc.getElementsByTagName("VpaidClickTracking");
+
+      var name;
+      var tag;
+      for(var i = 0; i < x.length; i ++) {
+        name = x[i].getAttribute('name');
+        tag = document.getElementById(name);
+        if (tag) {
+          tag.setAttribute('data-tracking', findTracking(name, y));
+          tag.setAttribute('href', x[i].childNodes[0].nodeValue);
+          
+          tag.onclick = function(evt) {
+            var track = new XMLHttpRequest();
+            track.open("GET", this.getAttribute('data-tracking'), true);
+            track.send();
+          }
+        }
+      }      
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function findTracking(name, arr) {
+  var att;
+  for(var i = 0; i < arr.length; i ++) {
+    att = arr[i].getAttribute('name');
+    if (att == name) {
+      return arr[i].childNodes[0].nodeValue;
+    }
+  }
+  return '';
+}         
+
 
 function onClickAdsHandler(evt) {
   VPAID.clickThruAd();
 }
-
 
 function onClickSkipAdsHandler(evt) {
   player.stop();
