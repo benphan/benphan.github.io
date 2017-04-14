@@ -4,7 +4,71 @@
 
 <html>
     <head>
-        
+        <style>
+            .animated {
+              -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+            }
+
+            .animated.infinite {
+              -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+            }
+
+            .animated.hinge {
+              -webkit-animation-duration: 2s;
+              animation-duration: 2s;
+            }
+            @-webkit-keyframes slideInDown {
+              from {
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+                visibility: visible;
+              }
+
+              to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+              }
+            }
+
+            @keyframes slideInDown {
+              from {
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+                visibility: visible;
+              }
+
+              to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+              }
+            }
+
+            .slideInDown {
+              -webkit-animation-name: slideInDown;
+              animation-name: slideInDown;
+            }
+            @keyframes slideInLeft {
+              from {
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+                visibility: visible;
+              }
+
+              to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+              }
+            }
+
+            .slideInLeft {
+              -webkit-animation-name: slideInLeft;
+              animation-name: slideInLeft;
+            }
+        </style>
     </head>
     <body style="margin: 0;">
     	<div  style="width: 720px; height: 415px; border: 0 solid black; position:relative">
@@ -17,7 +81,7 @@
             </div>
             <div id="title" style="position: absolute; top: 80px; left:0;"><img src="title.png" style=""></div>
             <!--<div id="product" style="position: absolute; bottom: 20px; right:5px;"><img src="product.png" style=""></div>-->
-            <div id="header" style="position: absolute; left: 0; top: 0; right: 0; height: 50px;">
+            <div id="header" class="animated slideInDown" style="position: absolute; left: 0; top: 0; right: 0; height: 50px;">
                 <img src="header.png" style="width: 100%;">
             </div>
 
@@ -27,7 +91,7 @@
 
             </div>
             <p id="skip" style="display: none; position: absolute; text-align: right; right: 0; padding: 0; margin: 0; top:0px; cursor: pointer;"><img src="close.png" style="margin: auto; " alt="" /></p>
-            <ul style="list-style: none; position: absolute; top: 125px; left: -37px;">
+            <ul style="list-style: none; position: absolute; top: 125px; left: -37px;" class="animated slideInLeft">
                <li><a id="extra2" href="#" target="_blank"><img width="30px" src="fb.png"></a></li>
                <li><a id="extra3" href="#" target="_blank"><img width="30px" src="google.png"></a></li>
                <li><a id="extra4" href="#" target="_blank"><img width="30px" src="youtube.png"></a></li>
