@@ -25,6 +25,7 @@ function onLoadHandler(evt) {
   VPAID.startAd();
 
   var bg = document.getElementById('bg').style.display = 'none';
+  var guide = document.getElementById('guide').style.display = 'none';
   var header = document.getElementById('header');
   header.addEventListener('click', onClickAdsHandler);
 
